@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+.Search {
+    margin-top: 64px;
+    width: 80%;
+}
+
+.SearchInputForm {
+    width: 100%;
+    height: 56px;
+    border-radius: 32px;
+
+    display: flex;
+    align-items: center;
+    background: #68968962;
+}
+
+.SearchIcon {
+    margin-left: 32px;
+    margin-right: 20px;
+
+    color: #7D938A;
+}
+
+.SearchInputField {
+    /* remove default styles */
+    background: none;
+    outline: none;
+    border: none;
+
+    /* new styles */
+    width: 100%;
+    padding-right: 20px;
+    color: #7D938A;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: calc(8px + 2vmin);
+    cursor: text;
+}
+
+.SearchInputField::placeholder {
+    color: #7d938a92;
+    font-size: calc(8px + 2vmin);
+}
+
+.SearchInputField:focus {
+    background: none;
+    outline: none;
+    border: none;
+}

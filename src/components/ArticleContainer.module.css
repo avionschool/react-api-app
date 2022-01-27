@@ -1,0 +1,10 @@
+.ArticleContainer {
+    width: 80%;
+    height: 75vh;
+    margin-top: 36px;
+    padding: 16px;
+    overflow-y: scroll;
+
+    background-color: #40434E;
+    border-radius: 16px;
+}

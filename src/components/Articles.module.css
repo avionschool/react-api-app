@@ -1,0 +1,41 @@
+.Articles {
+    width: 100%;
+    min-height: 200px;
+    height: auto;
+    margin-bottom: 8px;
+    position: relative;
+    background-color: rgba(211, 211, 211, 0.2);
+    border-radius: 12px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #F5F5F5;
+}
+
+.articleUser {
+    font-weight: 700;
+    font-size: calc(12px + 2vmin);
+
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    right: 8px;
+}
+
+.articleBody {
+    font-size: calc(6px + 2vmin);
+
+    position: absolute;
+    left: 8px;
+    right: 8px;
+}
+
+.articleDate {
+    font-size: calc(6px + 1vmin);
+
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+}
