@@ -1,35 +1,45 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import App from './App';
-import {getArticles} from './utils/getArticles';
-import {articles} from './utils/articles';
+import { act, fireEvent, render, screen } from "@testing-library/react";
+import App from "./App";
+import { getArticles } from "./utils/getArticles";
+import { articles } from "./utils/articles";
 
-jest.mock('./utils/getArticles');
-
-test('search bar rendering', () => {
+jest.mock("./utils/getArticles");
+test("render articles after API fetch", async () => {
+  getArticles.mockImplementation(() => {
+    return Promise.resolve(articles);
+  });
   render(<App />);
-  const searchBar = screen.getByTitle('Search');
+  expect(getArticles).toHaveBeenCalledTimes(1);
+});
+
+test("search bar rendering", async () => {
+  getArticles.mockImplementation(() => {
+    return Promise.resolve(articles);
+  });
+  render(<App />);
+  const searchBar = screen.getByTitle("Search");
   expect(searchBar).toBeInTheDocument();
 });
 
-test('search bar input update', () => {
-  render(<App />);
-  const searchBarInput = screen.getByTitle('SearchInput');
-  fireEvent.change(searchBarInput, {
-    target: {value: 'Philippines'},
+test("search bar input update", async () => {
+  getArticles.mockImplementation(() => {
+    return Promise.resolve(articles);
   });
-  expect(searchBarInput.value).toBe('Philippines')
+  render(<App />);
+  const searchBarInput = screen.getByTitle("SearchInput");
+  await act(async () => {
+    fireEvent.change(searchBarInput, {
+      target: { value: "Philippines" },
+    });
+  });
+  expect(searchBarInput.value).toBe("Philippines");
 });
 
-test('articles container rendering', () => {
+test("articles container rendering", async () => {
+  getArticles.mockImplementation(() => {
+    return Promise.resolve(articles);
+  });
   render(<App />);
-  const artContainer = screen.getByTitle('ArticleContainer');
+  const artContainer = screen.getByTitle("ArticleContainer");
   expect(artContainer).toBeInTheDocument();
 });
-
-test('render articles after API fetch', async () => {
-  getArticles.mockImplementation(() => {
-    return articles
-  });
-  render(<App/>);
-  expect(getArticles).toHaveBeenCalledTimes(1);
-})
